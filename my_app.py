@@ -4,15 +4,15 @@ import requests
 import plotly.graph_objects as go
 import pandas as pd
 import json
-from dotenv import load_dotenv
-import os
+# from dotenv import load_dotenv
+# import os
 import requests
 
 # Load .env file
-load_dotenv()
+# load_dotenv()
 
 # Fetch the RapidAPI key
-rapidapi_key = os.getenv("RAPIDAPI_KEY")
+rapidapi_key = st.secrets["RAPIDAPI"]["KEY"]
 
 # Sidebar description
 st.sidebar.title('Tiker Talk Application')
@@ -109,7 +109,7 @@ stock_mapping = {
 
 
 # Set up OpenAI API key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = st.secrets["OPENAI"]["KEY"]
 
 # Fetch real-time stock data using Yahoo Finance API
 def fetch_realtime_stock_data(ticker):
