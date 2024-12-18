@@ -13,7 +13,7 @@ import requests
 
 # Fetch the RapidAPI key
 rapidapi_key = st.secrets["RAPIDAPI"]["KEY"]
-
+newrapidapi_key = st.secrets["NEWRAPIDAPI"]["KEY"]
 # Sidebar description
 st.sidebar.title('Tiker Talk Application')
 st.sidebar.write("""
@@ -152,7 +152,7 @@ def get_analyst(symbol, region="US"):
     url = "https://yahoo-finance166.p.rapidapi.com/api/stock/get-what-analysts-are-saying"
     querystring = {"region": region, "symbol": symbol}
     headers = {
-        "x-rapidapi-key": rapidapi_key,
+        "x-rapidapi-key": newrapidapi_key,
         "x-rapidapi-host": "yahoo-finance166.p.rapidapi.com"
     }
 
@@ -181,7 +181,7 @@ def get_analyst(symbol, region="US"):
                     # "target_price": item.get("target_price", "No target price available"),
                     "provider": item.get("provider", "Unknown provider"),
                     # "company_name": item.get("company_name", "No company name available"),
-                    "report_date": item.get("report_date", "No date available"),
+                    # "report_date": item.get("report_date", "No date available"),
                     
                 }
                 
@@ -291,7 +291,7 @@ def fetch_stock_chart(stock_name, region, range, interval):
     url = "https://yahoo-finance166.p.rapidapi.com/api/stock/get-chart"
     querystring = {"region": region, "range": range, "symbol": stock_name, "interval": interval}
     headers = {
-        "x-rapidapi-key": rapidapi_key,
+        "x-rapidapi-key": newrapidapi_key,
         "x-rapidapi-host": "yahoo-finance166.p.rapidapi.com"
     }
 
