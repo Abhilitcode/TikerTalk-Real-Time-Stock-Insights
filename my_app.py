@@ -490,8 +490,8 @@ if st.button("Submit"):
             st.subheader("Stock Profile")
             if data:
                 st.write(data)
-            # else:
-            #     print("Could not fetch the stock data.")
+            else:
+                print("Could not fetch the stock data.")
         elif function_name == "get_stock_chart":
             stock_name = args['stock_name']
             region = args["region"]
@@ -501,8 +501,8 @@ if st.button("Submit"):
             data = get_stock_chart(stock_name, region, range, interval)
             if data:
                 st.write(data)
-            else:
-                st.write("Could not fetch the stock chart data.")
+            # else:
+            #     st.write("Could not fetch the stock chart data.")
 
         elif function_name == "get_analyst_data":
             symbol = args['symbol']
